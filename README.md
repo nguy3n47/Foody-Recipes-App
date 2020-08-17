@@ -1,10 +1,9 @@
-# Foody-Recipes-App
-Project 01 - Foody Recipes App v1.0.0
-# Windows Progamming - 18CK2 
-# VNUHCM - University Of Science
--------------------------------------------------------------------
-# 18600187 - Vũ Cao Nguyên
-# 18600057 - Bùi Bảo Duy
--------------------------------------------------------------------
-Contact Support: nguyen.fit.hcmus@outlook.com
-Copyright © 2020
+# Project 01 - Foody Recipes App v1.0.0
+\n Windows Progamming - 18CK2 
+\n VNUHCM - University Of Science
+\n -------------------------------------------------------------------
+\n 18600187 - Vũ Cao Nguyên
+\n 18600057 - Bùi Bảo Duy
+\n -------------------------------------------------------------------
+\n Contact Support: nguyen.fit.hcmus@outlook.com
+\n Copyright © 2020
