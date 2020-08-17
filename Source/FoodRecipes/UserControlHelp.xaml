@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="FoodRecipes.UserControlHelp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FoodRecipes"
+             mc:Ignorable="d" 
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="740" d:DesignWidth="1129.6" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <local:ImagePatchRelativeToAbsoluteConverter x:Key="imagePathConverter"/>
+    </UserControl.Resources>
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.4}">
+        <DockPanel Name="USHelp" LastChildFill="True">
+            <StackPanel Orientation="Horizontal" Name="Top" Height="60" DockPanel.Dock="Top">
+                <Label Content="Help" Height="50" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Foreground="#FF484848" Margin="15,0,0,0"/>
+            </StackPanel>
+            <Grid Name="Help">
+                <TextBlock Text="404" Name="textHelp" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="404" Foreground="{Binding}"/>
+            </Grid>
+        </DockPanel>
+    </materialDesign:TransitioningContent>
+</UserControl>

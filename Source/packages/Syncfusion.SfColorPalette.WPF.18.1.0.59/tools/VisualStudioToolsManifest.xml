@@ -1,0 +1,8 @@
+<FileList>
+<File Reference="Syncfusion.SfColorPalette.WPF.dll">
+	<ContainsControls>True</ContainsControls>
+	<ToolboxItems VSCategory="Syncfusion Controls for WPF" BlendCategory="Syncfusion Controls for WPF">
+		<Item Type="Syncfusion.Windows.Controls.Media.SfColorPalette"/>
+	</ToolboxItems>
+</File>
+</FileList>

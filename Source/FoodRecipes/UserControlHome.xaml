@@ -1,0 +1,193 @@
+﻿<UserControl Name="Fx" x:Class="FoodRecipes.UserControlHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FoodRecipes"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="780" d:DesignWidth="1370" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <local:ImagePatchRelativeToAbsoluteConverter x:Key="imagePathConverter"/>
+    </UserControl.Resources>
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect ExpandIn, Duration=0:0:0}">
+        <DockPanel Name="USHome" LastChildFill="True">
+            <DockPanel.Resources>
+                <!--Color to brush converter-->
+                <local:ColorToSolidColorBrushValueConverter x:Key="ColorToSolidColorBrush_ValueConverter"/>
+            </DockPanel.Resources>
+            <Frame x:Name="_mainHome" NavigationUIVisibility="Hidden"></Frame>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Name="TopBar" Height="40" DockPanel.Dock="Top" Background="{Binding ColorTopBar}">
+                <Label Content="Food Recipes" Height="40" FontSize="18" VerticalContentAlignment="Center" HorizontalAlignment="Left" Foreground="#DDFFFFFF" Margin="15,0,0,0"/>
+                <Button x:Name="ButtonExit" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonExit_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="1195,0,0,0">
+                    <materialDesign:PackIcon Kind="Power" Width="30" Height="30" Foreground="White"/>
+                </Button>
+            </StackPanel>
+            <Grid Name="Menu" Width="240" Background="#FFD0D0D0" Opacity="0.8">
+                <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlideM" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                    <Grid x:Name="GridCursor" Margin="0 180 0 0" Background="{Binding ColorTopBar}" Width="7" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
+                </materialDesign:TransitioningContent>
+                <Button x:Name="ButtonOpenMenu" Height="60" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonOpenMenu_Click" Panel.ZIndex="1">
+                    <materialDesign:PackIcon Kind="Menu" Width="30" Height="30"/>
+                </Button>
+                <ListView Height="650.4" Name="itemMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" VerticalContentAlignment="Bottom" MouseLeftButtonUp="itemMenu_MouseLeftButtonUp">
+                    <ListViewItem Height="60">
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemSearch" Height="60">
+                        <StackPanel Orientation="Horizontal" Height="Auto" Width="Auto">
+                            <!--<materialDesign:PackIcon Kind="Magnify" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonSearch" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonSearch_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="SearchIcon" Kind="Magnify" Width="30" Height="30"/>
+                            </Button>
+                            <TextBox Name="SearchTexbox"
+            Margin="0 0 0 0"
+            materialDesign:HintAssist.Hint="Search recipe"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            BorderThickness="2"
+            Width="165"
+            Height="30"
+            VerticalAlignment="Center" CaretBrush="#FFFF7700" BorderBrush="#FF484848" VerticalContentAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemNew" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="Plus" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonNew" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonNew_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="NewIcon" Kind="Plus" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Text="New recipe" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemHome" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="HomeOutline" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonHome" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonHome_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="HomeIcon" Kind="HomeOutline" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Name="HomeTxB" Text="Home" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemFavorite" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="HeartOutline" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonHeart" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonHeart_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="HeartIcon" Kind="HeartOutline" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Name="HeartTxB" Text="Favorite" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemShopping" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="FormatListChecks" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonShop" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonShop_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="ShopIcon" Kind="FormatListChecks" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Name="ShopTxB" Text="Shopping list" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemAbout" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="InformationVariant" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonAbout" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonAbout_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="AboutIcon" Kind="InformationVariant" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Name="AboutTxB" Text="About" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemHelp" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="Help" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonHelp" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonHelp_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="HelpIcon" Kind="Help" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Name="HelpTxB" Text="Help" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemSetting" Height="60" VerticalContentAlignment="Bottom">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<materialDesign:PackIcon Kind="CogOutline" Height="25" Width="25" Margin="10"/>-->
+                            <Button x:Name="ButtonSetting" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF404040" Click="ButtonSetting_Click" Panel.ZIndex="1" Width="44">
+                                <materialDesign:PackIcon Name="SettingIcon" Kind="CogOutline" Width="30" Height="30"/>
+                            </Button>
+                            <TextBlock Name="SettingTxB" Text="Setting" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Name="Top" Height="60" DockPanel.Dock="Top">
+                <Image Name="TopImg" Height="40" Width="40" Margin="10,0,0,0" Source="Assets/food.co.ico" HorizontalAlignment="Left"></Image>
+                <Label Name="TopLabel" Content="Food Recipes" Height="60" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Foreground="#FF484848"/>
+            </StackPanel>
+            <StackPanel Name="Bot" Margin="0,0,30,0" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Height="25"
+                    Margin="5"
+                    Name="Prev"
+                    Click="Prev_Click"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="{Binding ColorTopBar}" BorderBrush="{x:Null}">
+                    <TextBlock
+                                Text="Prev" />
+                </Button>
+                <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
+              Style="{StaticResource MaterialDesignFloatingActionButton}" Width="25" Height="25"
+              VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{Binding ColorTopBar}" BorderBrush="{x:Null}"/>
+                <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5"
+              Style="{StaticResource MaterialDesignFloatingActionButton}" Width="25" Height="25"
+              VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{Binding ColorTopBar}" BorderBrush="{x:Null}"/>
+                <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5"
+              Style="{StaticResource MaterialDesignFloatingActionButton}" Width="25" Height="25"
+              VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{Binding ColorTopBar}" BorderBrush="{x:Null}"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Height="25"
+                    Margin="5"
+                    Name="Next"
+                    Click="Next_Click"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="{Binding ColorTopBar}" BorderBrush="{x:Null}">
+                    <TextBlock
+                                Text="Next" />
+                </Button>
+            </StackPanel>
+            <Grid Name="Food">
+                
+                <Frame x:Name="_food" NavigationUIVisibility="Hidden"></Frame>
+                <ListView Name="dataListview" Background="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="dataListview_SelectionChanged" MouseLeftButtonUp="dataListview_MouseLeftButtonUp" MouseRightButtonUp="dataListview_MouseRightButtonUp">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Border Name="responsivefood" CornerRadius="15,15,15,15" Width="{Binding WidthFood}" Height="166" BorderThickness="1">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding Picture, Converter={StaticResource imagePathConverter}}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill"></ImageBrush>
+                                    </Border.Background>
+                                    <Button x:Name="ButtonFavorite" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="ButtonFavorite_Click" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                        <materialDesign:PackIcon Name="Favorite" Kind="{Binding UIHeartIcon}" RenderOptions.BitmapScalingMode="HighQuality" Width="25" Height="25" Foreground="{Binding UIHeartColor}"/>
+                                    </Button>
+                                </Border>
+                                <Label Content="{Binding Title}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"></Label>
+                                <!--<StackPanel Orientation="Horizontal">
+                                <TextBlock TextWrapping="Wrap" Width="266" Height="166"
+                                    Text="{Binding Description}" TextAlignment="Justify" />
+                            </StackPanel>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </DockPanel>
+    </materialDesign:TransitioningContent>
+</UserControl>

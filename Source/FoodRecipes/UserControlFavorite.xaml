@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="FoodRecipes.UserControlFavorite"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FoodRecipes"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="600.8" d:DesignWidth="1303.2" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <local:ImagePatchRelativeToAbsoluteConverter x:Key="imagePathConverter"/>
+    </UserControl.Resources>
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.4}">
+        <DockPanel Name="USFavorite" LastChildFill="True">
+            <StackPanel Orientation="Horizontal" Name="Top" Height="60" DockPanel.Dock="Top">
+                <Label Content="Favorite" Height="50" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Foreground="#FF484848" Margin="15,0,0,0"/>
+            </StackPanel>
+            <StackPanel Visibility="Collapsed" Name="Bot" Margin="0,0,30,0" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Height="25"
+                    Margin="5"
+                    Name="Prev"
+                    Click="Prev_Click"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#ff7700" BorderBrush="{x:Null}">
+                    <TextBlock
+                                Text="Prev" />
+                </Button>
+                <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
+              Style="{StaticResource MaterialDesignFloatingActionButton}" Width="25" Height="25"
+              VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#ff7700" BorderBrush="{x:Null}"/>
+                <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5"
+              Style="{StaticResource MaterialDesignFloatingActionButton}" Width="25" Height="25"
+              VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#ff7700" BorderBrush="{x:Null}"/>
+                <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5"
+              Style="{StaticResource MaterialDesignFloatingActionButton}" Width="25" Height="25"
+              VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#ff7700" BorderBrush="{x:Null}"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Height="25"
+                    Margin="5"
+                    Name="Next"
+                    Click="Next_Click"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#ff7700" BorderBrush="{x:Null}">
+                    <TextBlock
+                                Text="Next" />
+                </Button>
+            </StackPanel>
+            <Grid Name="FoodFavorite">
+                <ListView Name="dataListview" Background="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseLeftButtonUp="dataListview_MouseLeftButtonUp">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Border CornerRadius="15,15,15,15" Width="266" Height="166" BorderThickness="1">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding Picture, Converter={StaticResource imagePathConverter}}" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"></ImageBrush>
+                                    </Border.Background>
+                                    <Button x:Name="ButtonFavorite" Click="ButtonFavorite_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                        <materialDesign:PackIcon Name="Favorite" Kind="{Binding UIHeartIcon}" RenderOptions.BitmapScalingMode="HighQuality" Width="25" Height="25" Foreground="{Binding UIHeartColor}"/>
+                                    </Button>
+                                </Border>
+                                <Label Content="{Binding Title}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"></Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </DockPanel>
+    </materialDesign:TransitioningContent>
+</UserControl>

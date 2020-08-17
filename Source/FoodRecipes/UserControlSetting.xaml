@@ -1,0 +1,62 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FoodRecipes" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="FoodRecipes.UserControlSetting"
+             mc:Ignorable="d"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="740" d:DesignWidth="1129.6">
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect ExpandIn, Duration=0:0:0.4}">
+        <DockPanel Name="USSetting" LastChildFill="True">
+            <StackPanel Orientation="Horizontal" Name="Top" Height="60" DockPanel.Dock="Top">
+                <Label Name="sss" Content="Setting" Height="50" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Foreground="#FF484848" Margin="25,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="60" DockPanel.Dock="Top">
+                <Label Content="Select color scheme" Height="50" FontSize="18" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FF484848" Margin="25,5,0,5"/>
+            </StackPanel>
+            <Grid Margin="15" Width="480" HorizontalAlignment="Left">
+                <ListView Name="dataListview" Background="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="dataListview_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <Rectangle Width="70" Height="70" Fill="#d24400" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#ff8c00" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#e81123" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#d13438" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#ff4081" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#c30052" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#bf0077" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#9a0089" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#881798" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#744da9" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#4caf50" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#10893e" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#018574" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#03a9f4" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#304ffe" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#0063b1" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#6b69d6" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#8e8cd8" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#8764b8" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#038387" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#525e54" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#7e735f" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#9e9e9e" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#515c6b" Margin="5"></Rectangle>
+                    <Rectangle Width="70" Height="70" Fill="#000000" Margin="5"></Rectangle>
+                </ListView>
+            </Grid>
+        </DockPanel> 
+    </materialDesign:TransitioningContent>
+</UserControl>

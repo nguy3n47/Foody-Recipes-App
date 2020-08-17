@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="FoodRecipes.UserControlAbout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FoodRecipes"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="740" d:DesignWidth="1129.6">
+    <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.4}">
+        <DockPanel LastChildFill="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,564.6,265" Grid.RowSpan="2">
+                    <StackPanel Margin="15,0,0,68" Orientation="Vertical" Name="Top" Height="Auto">
+                        <Label  Content="About" Height="50" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Foreground="#FF484848"/>
+                        <Label  Content="Foody Recipes App - Project 01" Height="50" FontSize="20" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FF484848" FontWeight="Bold" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label  Content="1.0.0" Height="50" FontSize="20" HorizontalAlignment="Left" Foreground="#FF484848" VerticalAlignment="Center" />
+                        <Label  Content="Windows Programming - 18CK2" Height="50" FontSize="20" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FF484848"  FontWeight="Bold" VerticalAlignment="Center"/>
+                        <Label  Content="VNUHCM - University Of Science" Height="50" FontSize="20" HorizontalAlignment="Left" Foreground="#FF484848" VerticalAlignment="Center" />
+                        <Label  Content="Contact Support" Height="50" FontSize="20" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FF484848"  FontWeight="Bold" VerticalAlignment="Center"/>
+                        <Label  Content="nguyen.fit.hcmus@outlook.com" Height="50" FontSize="20" HorizontalAlignment="Left" Foreground="#FF1A73E8" VerticalAlignment="Center"  />
+                        <Label  Content="Copyright © 2020" Height="50" FontSize="20" HorizontalAlignment="Left" Foreground="#FF484848" VerticalAlignment="Center" VerticalContentAlignment="Bottom" />
+                    </StackPanel>
+                </Grid>
+                <Border Margin="5,5,50,5" Grid.Column="0" Grid.Row="1" Width="250" Height="250" VerticalAlignment="Center" CornerRadius="500" HorizontalAlignment="Right">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/34123114_235937487140188_8411538856163147776_n.jpg" RenderOptions.BitmapScalingMode="HighQuality"></ImageBrush>
+                    </Border.Background>
+                    <Label Content="18600187 - Vũ Cao Nguyên" FontSize="18" Margin="0,261,-0.4,-41.4" Height="30" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ></Label>
+                </Border>
+                <Border Margin="50,5,5,5" Grid.Column="1" Grid.Row="1" Width="250" Height="250" VerticalAlignment="Stretch" CornerRadius="500" HorizontalAlignment="Left">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/img_4266.png" RenderOptions.BitmapScalingMode="HighQuality"></ImageBrush>
+                    </Border.Background>
+                </Border>
+                <Label Content="18600057 - Bùi Bảo Duy" FontSize="18" Margin="50.2,320.6,264.6,19" Height="30" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="1" ></Label>
+
+            </Grid>
+        </DockPanel>
+    </materialDesign:TransitioningContent>
+</UserControl>
